@@ -8,6 +8,8 @@ class Home
     use Controller;
     public function index()
     {
-        $this->view('home');
+        $data = [];
+        $data['username'] = empty($_SESSION['USER']) ? 'USER' : $_SESSION['USER']->email;
+        $this->view('home', $data);
     }
 }

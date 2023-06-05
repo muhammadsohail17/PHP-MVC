@@ -12,6 +12,7 @@ trait Model
     protected $offset = 0;
     protected $order_type = "desc";
     protected $order_column = "id";
+    public $errors = [];
 
     public function findAll()
     {
@@ -42,7 +43,7 @@ trait Model
         return $this->query($query, $data);
     }
 
-    public function first($data, $data_not)
+    public function first($data, $data_not = [])
     {
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
